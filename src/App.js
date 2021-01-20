@@ -1,7 +1,7 @@
 import React from 'react';
 import { Main } from './pages/Main';
 import { View } from './pages/View';
-import { Route, BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 
 function App() {
@@ -10,8 +10,10 @@ function App() {
       <header />
           Hello react router
           <BrowserRouter>
-            <Route exact path="/" component={Main}/>
-            <Route path="/view" component={View}/>
+            <Switch>
+              <Route exact path="/" component={Main}/>
+              <Route path="/view" component={View}/>
+            </Switch>
           </BrowserRouter>
       <footer />
     </div>
