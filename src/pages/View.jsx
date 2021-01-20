@@ -1,10 +1,10 @@
 import React from "react";
 
-export const Main = () => {
+export const View = () => {
   return (
     <div>
-      main
+      view
     </div>
-  )     
+  )    
 };
 
