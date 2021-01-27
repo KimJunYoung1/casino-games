@@ -1,7 +1,7 @@
-import React from 'react';
-import { Main } from './pages/Main';
-import { View } from './pages/View';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import React from "react";
+import { Main } from "./pages/Main";
+import { View } from "./pages/View";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 
 function App() {

@@ -1,5 +1,11 @@
 import React from "react";
+import styled from "styled-components";
 
 export const Chip = () => {
-  return <div></div>;
+  return (
+    <div>
+      
+    </div>
+  )  
 };
+
