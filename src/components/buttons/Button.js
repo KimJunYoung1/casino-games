@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
-import { Toggle } from './Toggle';
 import { ButtonIcon } from '../../assets/ButtonIcon';
 
-export const Button = ({ variant, color, children }) => {
+export const Button = ({ variant, color, Icon, children }) => {
     
     const theme = {
         default: '#00990f',
@@ -16,12 +15,28 @@ export const Button = ({ variant, color, children }) => {
     return (
         <ThemeProvider theme={theme}>
             <BaseButton variant={variant} color={color}>
-                {children}
+                <ContainerWrapper>
+                    {Icon ? 
+                    <IconWrapper><ButtonIcon /></IconWrapper> 
+                    : <></>}
+                    <TextWrapper>{children}</TextWrapper>
+                </ContainerWrapper>
             </BaseButton>
         </ThemeProvider>
     )
 }
 // variant = contained/outlined/text , color = default, primary, secondary, disabled , children = children
+
+const IconWrapper = styled.div`
+    padding-right: 5px;
+`
+const TextWrapper = styled.div`
+    
+`
+const ContainerWrapper = styled.div`
+    display: flex;
+    justify-content: center;    
+`
 
 const renderTextColor = (variant, color, changeColor) =>{
     if(variant === "contained"){
@@ -70,11 +85,11 @@ const renderBackgroundColor = (variant, color, changeColor) => {
 
 const renderHoverColor = (color, changeColor) => {
     if(color === "default"){
-        return changeColor.default
+        return "#bbfcbd"
     } else if(color === "primary"){
-        return changeColor.first
+        return "#fabbbf"
     } else if(color === "secondary"){
-        return changeColor.second
+        return "#b9b7f7"
     } 
 }
 
