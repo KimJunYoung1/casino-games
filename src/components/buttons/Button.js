@@ -1,80 +1,60 @@
-import React, { useState } from 'react';
-import styled, { ThemeProvider } from 'styled-components';
-import { Toggle } from './Toggle';
-import { ButtonIcon } from '../../assets/ButtonIcon';
+import React from 'react';
+import styled from 'styled-components';
+import { Colors } from '../Colors';
 
-export const Button = ({ variant, color, children }) => {
-    
-    const theme = {
-        default: '#00990f',
-        first: '#c92200',
-        second: '#0600a8',
-        disabled: '#cfd1cf',
-        cf: 'white'
-    }
-
+export const Button = ({ variant, color, icon, children }) => {    
     return (
-        <ThemeProvider theme={theme}>
             <BaseButton variant={variant} color={color}>
-                {children}
+                <ContainerWrapper>
+                    {icon ? 
+                    <IconWrapper>{icon}</IconWrapper> 
+                    : <></>}
+                    <TextWrapper>{children}</TextWrapper>
+                </ContainerWrapper>
             </BaseButton>
-        </ThemeProvider>
     )
 }
-// variant = contained/outlined/text , color = default, primary, secondary, disabled , children = children
 
-const renderTextColor = (variant, color, changeColor) =>{
+const IconWrapper = styled.div`
+    padding-right: 5px;
+`
+const TextWrapper = styled.div``
+const ContainerWrapper = styled.div`
+    display: flex;
+    justify-content: center;    
+`
+
+const renderTextColor = (variant, color) => {
     if(variant === "contained"){
-        return changeColor.cf
-    } else if(color === "default"){
-        return changeColor.default
-    } else if(color === "primary"){
-        return changeColor.first
-    } else if(color === "secondary"){
-        return changeColor.second
-    } else if(color === "disabled"){
-        return changeColor.disabled
+        return Colors["white"]
+    } else {
+        return Colors[color]
     }
 }
 
-const renderBorderColor = (variant, color, changeColor) => {
+const renderBorderColor = (variant, color) => {
     if(variant === "text" || variant === "contained"){
         return "none";
-    } 
-    else if(variant === "outlined"){
-        if(color === "default"){
-            return `1px solid ${changeColor.default}`
-        } else if(color === "primary"){
-            return `1px solid ${changeColor.first}`
-        } else if(color === "secondary"){
-            return `1px solid ${changeColor.second}`
-        } else if(color === "disabled"){
-            return `1px solid ${changeColor.disabled}`
-        }
+    } else if(variant === "outlined"){
+        return `1px solid ${Colors[color]}`        
     } 
 }
 
-const renderBackgroundColor = (variant, color, changeColor) => {
-    if(color === "default" && variant === "contained"){
-        return changeColor.default
-    } else if(color === "primary" && variant === "contained"){
-        return changeColor.first
-    } else if(color === "secondary" && variant === "contained"){
-        return changeColor.second
-    } else if(color === "disabled" && variant === "contained"){
-        return changeColor.disabled
+const renderBackgroundColor = (variant, color) => {
+    if(variant === "contained"){
+        return Colors[color]
     } else {
-        return changeColor.cf
+        return Colors["white"];
     }
 }
 
-const renderHoverColor = (color, changeColor) => {
+const renderHoverColor = (color) => {
     if(color === "default"){
-        return changeColor.default
+        return "#bbfcbd"
     } else if(color === "primary"){
-        return changeColor.first
+        return "#fabbbf"
     } else if(color === "secondary"){
-        return changeColor.second
+        return "#b9b7f7"
     } 
 }
 
@@ -82,9 +62,9 @@ const BaseButton = styled.button`
     width: 180px;
     height: 60px;
     font-weight: bold;
-    background-color: ${props => renderBackgroundColor(props.variant, props.color, props.theme)};  
-    color: ${props => renderTextColor(props.variant, props.color, props.theme)};  
-    border: ${props => renderBorderColor(props.variant, props.color, props.theme)};   
+    background-color: ${props => renderBackgroundColor(props.variant, props.color)};  
+    color: ${props => renderTextColor(props.variant, props.color)};  
+    border: ${props => renderBorderColor(props.variant, props.color)};   
     padding: 20px;
     margin: 5px;
     border-radius: 50px;
@@ -92,6 +72,6 @@ const BaseButton = styled.button`
     pointer-events: ${props => props.color === "disabled" ? "none" : "auto"};
     outline: none;
     &:hover {
-        background: ${props => renderHoverColor(props.color, props.theme)}
+        background: ${props => renderHoverColor(props.color)}
     }
 `

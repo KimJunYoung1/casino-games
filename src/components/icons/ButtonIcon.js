@@ -4,9 +4,9 @@ export const ButtonIcon = () => {
     return (
         <svg 
             id="Layer_1" 
-            height="18" 
+            height="13" 
             viewBox="0 0 512 512" 
-            width="18" 
+            width="13" 
             xmlns="http://www.w3.org/2000/svg" 
             data-name="Layer 1">
             <path d="m481.52 452.12a36.4 36.4 0 0 1 -36.21 36.6l-248.42 1.33 218.77-51.21a29.837 29.837 0 0 0 22.25-35.86l-82.47-352.31.27-.06 87.25-.47a36.394 36.394 0 0 1 36.6 36.21z" fill="#b0b5ca"/>
