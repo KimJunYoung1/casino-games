@@ -1,55 +1,35 @@
 import React from "react";
 import styled from "styled-components";
 import { Button } from "../components/buttons/Button";
+import { ButtonIcon } from '../components/icons/ButtonIcon';
 import { Chip } from "../components/Chip";
 import Card from "../components/cards/Card123";
+
 
 export const View = () => {
   return (
     <div>
-      <Buttons />
-      <div>
-        <Button variant="contained" color="default">
-          def
-        </Button>
-        <Button variant="contained" color="primary">
-          primary
-        </Button>
-        <Button variant="contained" color="secondary">
-          secondary
-        </Button>
-        <Button variant="contained" color="disabled">
-          disabled
-        </Button>
-      </div>
-      <div>
-        <Button variant="outlined" color="default">
-          def
-        </Button>
-        <Button variant="outlined" color="primary">
-          primary
-        </Button>
-        <Button variant="outlined" color="secondary">
-          secondary
-        </Button>
-        <Button variant="outlined" color="disabled">
-          disabled
-        </Button>
-      </div>
-      <div>
-        <Button variant="text" color="default">
-          def
-        </Button>
-        <Button variant="text" color="primary">
-          primary
-        </Button>
-        <Button variant="text" color="secondary">
-          secondary
-        </Button>
-        <Button variant="text" color="disabled">
-          disabled
-        </Button>
-      </div>
+     
+         <div>
+          <Button variant="contained" color="default" icon={<ButtonIcon />}>def</Button>
+          <Button variant="contained" color="primary">primary</Button>
+          <Button variant="contained" color="secondary" icon={<ButtonIcon />}>secondary</Button>
+          <Button variant="contained" color="disabled">disabled</Button>      
+        </div>
+        <div>
+          <Button variant="outlined" color="default">def</Button>      
+          <Button variant="outlined" color="primary" icon={<ButtonIcon />}>primary</Button>      
+          <Button variant="outlined" color="secondary">secondary</Button>      
+          <Button variant="outlined" color="disabled">disabled</Button>      
+        </div>
+        <div>
+          <Button variant="text" color="default">def</Button>      
+          <Button variant="text" color="primary">primary</Button>      
+          <Button variant="text" color="secondary">secondary</Button>      
+          <Button variant="text" color="disabled">disabled</Button>      
+        </div>        
+      
+
       <div>
         <Chip price={1000} count={1} />
         <Chip price={5000} count={1} />

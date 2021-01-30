@@ -4,6 +4,7 @@ import { View } from "./pages/View";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Wallet from "./pages/mypage/Wallet";
 
+
 function App() {
   return (
     <div>
